@@ -1,0 +1,30 @@
+{# Este template herda de 'partials/head.html' que provavelmente contém a estrutura base HTML (head, body, etc.) #}
+{% extends "partials/head.html" %}
+
+{# Bloco que define o título da página. Verifica se a variável 'title' está definida e a exibe. #}
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% endif %}
+{% endblock title %}
+
+{# Bloco para incluir outros elementos como o menu de navegação #}
+{% block include %}
+    {% include "partials/menu.html" %}
+{% endblock include %}
+
+{# Bloco principal do corpo da página #}
+{% block body %}
+<h1>Frases em Latim</h1>  {# Título principal visível na página #}
+
+<main class='content'>
+    {# Bloco chamado 'post' que contém a listagem de posts. Pode ser sobrescrito se necessário. #}
+    {% block post %}
+        {# Laço que percorre a lista de 'posts' recebida no contexto da view #}
+        {% for post in posts %}
+            {# Inclui o conteúdo de cada post usando um template separado #}
+            {% include "partials/postblock.html" %}
+        {% endfor %}
+    {% endblock post %}
+</main>
+{% endblock body %}

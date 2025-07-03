@@ -1,0 +1,27 @@
+{% load static %}  {# Carrega a tag 'static' do Django para servir arquivos estáticos como CSS, JS, imagens etc. #}
+
+<!DOCTYPE html>
+<html lang="en">  {# Define o tipo de documento e a linguagem principal da página (inglês) #}
+<head>
+    <meta charset="UTF-8">  {# Define a codificação de caracteres como UTF-8 (suporta acentos e caracteres especiais) #}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  {# Torna o site responsivo em dispositivos móveis #}
+
+    {# Bloco 'title' que pode ser sobrescrito pelos templates filhos #}
+    <title>{% block title %}Title{% endblock title %}</title>
+
+    {# Link para o arquivo CSS localizado na pasta static #}
+    <link rel="stylesheet" href="{% static 'formatacao.css' %}">
+</head>
+
+<body>
+    {# Bloco 'include' para inserir elementos como menu, cabeçalho etc. #}
+    {% block include %}
+    
+    {% endblock include %}
+
+    {# Bloco principal do corpo da página #}
+    {% block body %}
+    
+    {% endblock body %}
+</body>
+</html>

@@ -1,0 +1,35 @@
+{# Extende o template base localizado em app/texto.html #}
+{% extends "app/texto.html" %}
+
+{# Define o conteúdo do bloco 'title' do template base #}
+{% block title %}
+    {% if title %}
+        {{ title }} {# Exibe o título se a variável 'title' estiver definida #}
+    {% endif %}
+{% endblock title %}
+
+{# Bloco personalizado chamado 'include', usado aqui para incluir o menu #}
+{% block include %}
+    {% include "partials/menu.html" %} {# Inclui o arquivo de menu da pasta partials #}
+{% endblock include %}
+
+{# Define o conteúdo do bloco 'body' do template base #}
+{% block body %}
+<main class='content'>
+    <h1>Frases em Latim</h1> {# Título principal da página #}
+
+    {# Bloco 'posts' que pode ser sobrescrito por outros templates filhos #}
+    {% block posts %}
+        <article class="single__post">
+            <header>
+                <h1 class="single__post__title">
+                    {{ post.title }} {# Exibe o título do post atual #}
+                </h1>
+            </header>
+            <div class="single__post__body">
+                {{ post.body }} {# Exibe o corpo do post atual #}
+            </div>
+        </article>
+    {% endblock posts %}
+</main>
+{% endblock body %}

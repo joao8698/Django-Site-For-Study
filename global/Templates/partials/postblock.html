@@ -1,0 +1,13 @@
+<article class="post">  {# Define um artigo (postagem) com classe CSS 'post' para estilização #}
+    <header>
+        <h2 class="post__title">  {# Título do post, com classe CSS própria #}
+            <a href="{% url "app:posts" post.id %}">  {# Link para a página do post individual, usando o ID do post #}
+                {{ post.title }}  {# Exibe o título do post #}
+            </a>
+        </h2>
+    </header>
+    
+    <div class="post__body">
+        {{ post.body }}  {# Exibe o corpo (conteúdo) do post #}
+    </div>
+</article>

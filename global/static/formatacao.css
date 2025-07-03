@@ -1,0 +1,68 @@
+/* Reset básico para remover margens, paddings e configurar o box-sizing */
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Faz com que o padding e border sejam incluídos na largura/altura total dos elementos */
+}
+
+/* Define o tamanho base da fonte para facilitar o uso de rem (1rem = 10px agora) */
+html {
+  font-size: 62.5%; /* 62.5% de 16px = 10px */
+}
+
+/* Estilização do corpo da página */
+body {
+  font-size: 1.6rem; /* 16px (porque 1rem = 10px) */
+  background: #f1f1f1; /* Cor de fundo clara */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Fonte amigável e moderna */
+}
+
+/* Container principal da página */
+.content {
+  display: grid;         /* Usa Grid Layout */
+  gap: 1.5rem;           /* Espaçamento entre os elementos filhos */
+  padding: 1.5rem;       /* Espaçamento interno (margem interna) */
+}
+
+/* Estilo para cada post e para o post único */
+.post, .single__post {
+  background-color: white;               /* Fundo branco para destacar do fundo geral */
+  padding: 1.5rem;                       /* Espaço interno */
+  box-shadow: 5px 2px 5px rgba(0, 0, 0, 20%); /* Sombra sutil para destacar visualmente */
+}
+
+/* Estilo responsivo: aplica apenas em telas maiores que 600px */
+@media (min-width: 600px) {
+  /* Se NÃO for uma página de post único, os posts são organizados em colunas responsivas */
+  .content:not(:has(.single__post)) {
+    grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr)); /* Cria colunas responsivas com mínimo de 320px */
+  }
+}
+
+a {
+  color: grey;
+  text-decoration: none;
+}
+
+a:hover {
+  color: grey;
+  text-decoration: underline;
+}
+
+.menu {
+  background: #000;
+  padding: 1.5rem;
+}
+
+.menu a {
+  color: #0078e8;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: #0078e8;
+  text-decoration: underline;
+}

@@ -1,0 +1,16 @@
+# Arquivos Python
+*.pyc
+__pycache__/
+
+# Banco de dados
+db.sqlite3
+
+# Configurações secretas
+.env
+
+# Pastas de ambiente virtual (altere se sua for diferente)
+venv/
+env/
+
+# Arquivos do VS Code
+.vscode/
