@@ -24,10 +24,12 @@ from decouple import config
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # List of allowed hosts. In production, you should set this to prevent other domains from accessing your app.
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -121,7 +123,7 @@ STATIC_URL = '/static/'  # Define the base URL for static files
 STATICFILES_DIRS = [
     BASE_DIR / 'global' / 'static'  # Directory for additional static files
 ]
-
+STATIC_ROOT = BASE_DIR / 'static_files'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
